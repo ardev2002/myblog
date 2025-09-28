@@ -2,25 +2,27 @@ import { cookiesClient } from "@/utils/amplify-server-utils";
 import Link from "next/link";
 
 export default async function HomePage() {
-  // ✅ Fetch latest posts
-  const { data: posts } = await cookiesClient.models.Post.list({
-    // You can add sorting/filtering if needed
-    // sortDirection: "DESC", 
-    // filter: { filterTag: { eq: "LATEST" } }, 
-  });
+  const { data: posts } = await cookiesClient.models.Post.list();
 
   return (
-    <main className="max-w-3xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">Latest Blogs</h1>
+    <main className="max-w-7xl mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-8 text-center">Latest Blogs</h1>
 
-      <div className="space-y-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <Link key={post.id} href={`/blogs/${post.id}?name=${post.slug}`}>
-            <div className="p-4 border rounded-lg hover:bg-gray-50 transition">
-              <h2 className="text-lg font-semibold">{post.title}</h2>
-              <p className="text-sm text-gray-500">
-                By {post.author} • {post.filterTag}
-              </p>
+          <Link key={post.slug} href={`/blog/${post.slug}`}>
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-lg transition p-6 flex flex-col justify-between h-full">
+              <div>
+                <h2 className="text-xl font-semibold mb-2 line-clamp-2">{post.title}</h2>
+                <p className="text-sm text-gray-500 dark:text-gray-300">
+                  By {post.author} • {post.filterTag}
+                </p>
+              </div>
+              <div className="mt-4">
+                <span className="inline-block bg-blue-100 dark:bg-blue-700 text-blue-800 dark:text-blue-100 text-xs font-medium px-3 py-1 rounded-full">
+                  Read More
+                </span>
+              </div>
             </div>
           </Link>
         ))}

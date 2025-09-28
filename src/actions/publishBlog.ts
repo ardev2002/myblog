@@ -14,30 +14,26 @@ export async function publishBlog(formData: FormData) {
         // Parse sections JSON
         const sections = JSON.parse(formData.get("sections") as string);
 
-        const { data: category, errors: categoryErrors } = await cookiesClient.models.Category.create({
-            name: categoryId,
-        });
-
         // ✅ Create Post
         const { data: post, errors: postErrors } = await cookiesClient.models.Post.create({
             title,
-            categoryId: category?.id,
+            category: categoryId,
             slug,
             filterTag,
             author,
-        });
+        }, { authMode: 'userPool' });
 
-        console.log(categoryErrors, postErrors);
-        
+        console.log(postErrors)
+
         // ✅ Create Sections linked to Post
         for (const sec of sections) {
             await cookiesClient.models.ContentSection.create({
+                postSlug: post?.slug,
                 subheading: sec.subheading,
                 imgUrl: sec.imgUrl,
                 paragraph: sec.paragraph,
                 order: sec.order,
-                postId: post?.id,
-            });
+            }, { authMode: 'userPool' });
         }
 
         revalidatePath("/blogs");

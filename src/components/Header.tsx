@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <>
       {/* Fixed Header */}
-      <header className="fixed top-0 left-0 w-full bg-base-200 text-base-content shadow-md z-50 h-[70px]">
+      <header className="fixed top-0 left-0 w-full bg-purple-900/60 text-base-content shadow-md z-50 h-[70px]">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:px-6 h-full">
           {/* Logo */}
           <Link href="/" className="text-xl md:text-2xl font-bold text-primary">

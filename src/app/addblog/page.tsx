@@ -37,13 +37,13 @@ export default function page() {
                 <form className="space-y-6" action={publishBlog}>
                     {/* Title */}
                     <div>
-                        <label className="label font-semibold">Title</label>
+                        <label className="label font-semibold">Blog Name</label>
                         <input type="text" name="title" className="input input-bordered w-full" required />
                     </div>
 
                     {/* Slug */}
                     <div>
-                        <label className="label font-semibold">Blog URL Name</label>
+                        <label className="label font-semibold">Blog Url</label>
                         <input type="text" name="slug" className="input input-bordered w-full" required />
                     </div>
 
