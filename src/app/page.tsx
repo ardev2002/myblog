@@ -6,8 +6,6 @@ export default async function HomePage() {
 
   return (
     <main className="max-w-7xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-8 text-center">Latest Blogs</h1>
-
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`}>
@@ -15,7 +13,7 @@ export default async function HomePage() {
               <div>
                 <h2 className="text-xl font-semibold mb-2 line-clamp-2">{post.title}</h2>
                 <p className="text-sm text-gray-500 dark:text-gray-300">
-                  By {post.author} • {post.filterTag}
+                  By {post.author}
                 </p>
               </div>
               <div className="mt-4">

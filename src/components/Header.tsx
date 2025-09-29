@@ -16,7 +16,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:px-6 h-full">
           {/* Logo */}
           <Link href="/" className="text-xl md:text-2xl font-bold text-primary">
-            🚀 MyBlog
+            🚀 Crispyphrase
           </Link>
 
           {/* Desktop Nav */}

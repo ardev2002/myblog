@@ -8,10 +8,7 @@ export async function publishBlog(formData: FormData) {
         const title = formData.get("title") as string;
         const slug = formData.get("slug") as string;
         const categoryId = formData.get("categoryId") as 'MOBILES' | 'TECHNOLOGY' | 'TIPS_AND_TRICKS' | 'LIFESTYLE' | 'HEALTH_AND_WELLNESS' | 'ENTERTAINMENT' | 'SPORTS';
-        const filterTag = formData.get("filterTag") as 'LATEST' | 'POPULAR';
         const author = formData.get("author") as string;
-
-        // Parse sections JSON
         const sections = JSON.parse(formData.get("sections") as string);
 
         // ✅ Create Post
@@ -19,7 +16,6 @@ export async function publishBlog(formData: FormData) {
             title,
             category: categoryId,
             slug,
-            filterTag,
             author,
         }, { authMode: 'userPool' });
 

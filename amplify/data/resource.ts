@@ -13,7 +13,6 @@ const schema = a.schema({
       'ENTERTAINMENT',
       'SPORTS',
     ]),
-    filterTag: a.enum(['LATEST', 'POPULAR']),
     author: a.string(),
     sections: a.hasMany('ContentSection', 'postSlug'),
   })

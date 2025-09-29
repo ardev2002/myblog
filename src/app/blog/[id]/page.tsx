@@ -31,6 +31,13 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     day: 'numeric'
   })
 
+  const isLatest = (() => {
+    const postDate = new Date(post.createdAt)
+    const now = new Date()
+    const diffDays = Math.floor((now.getTime() - postDate.getTime()) / (1000 * 60 * 60 * 24))
+    return diffDays <= 14
+  })()
+
   return (
     <main className="w-full min-h-screen bg-white text-black dark:bg-[#1d232a] dark:text-white p-6">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
@@ -41,9 +48,10 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           <div className="flex flex-wrap justify-between items-center gap-3 text-sm text-black/70 dark:text-white/70">
             <div className="flex items-center gap-2">
               <span className="font-medium">By {post.author}</span>
-              <div className="badge badge-neutral bg-gray-100 text-black dark:bg-gray-800 dark:text-white">
-                {post.filterTag}
-              </div>
+              {isLatest && <div className="badge badge-soft badge-info dark:badge-accent">
+                LATEST
+              </div>}
+
             </div>
             {postedDate && (
               <div className="flex items-center gap-2">
@@ -67,7 +75,6 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                 </section>
               ))}
           </div>
-
         </article>
 
         {/* === Recent Posts Layout === */}
