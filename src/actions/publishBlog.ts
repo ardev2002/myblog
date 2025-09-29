@@ -32,7 +32,7 @@ export async function publishBlog(formData: FormData) {
             }, { authMode: 'userPool' });
         }
 
-        revalidatePath("/blogs");
+        revalidatePath("/");
     } catch (error) {
         console.log(error);
     }

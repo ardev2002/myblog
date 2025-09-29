@@ -3,7 +3,7 @@ import { publishBlog } from '@/actions/publishBlog';
 import AddSection from '@/components/AddSection';
 import React, { useState } from 'react'
 
-export default function page() {
+export default function AddBlogPage() {
     const [sections, setSections] = useState<any[]>([
         { subheading: '', imgUrl: '', paragraph: '', order: 1 },
     ]);
@@ -51,7 +51,7 @@ export default function page() {
                     <div>
                         <label className="label font-semibold">Category</label>
                         <select name="categoryId" className="select select-bordered w-full" required>
-                            <option disabled defaultValue={'select'}>Select category</option>
+                            <option disabled selected defaultValue={'select'}>Select category</option>
                             <option value="MOBILES">Mobiles</option>
                             <option value="TECHNOLOGY">Technology</option>
                             <option value="TIPS_AND_TRICKS">Tips & Tricks</option>
@@ -62,25 +62,14 @@ export default function page() {
                         </select>
                     </div>
 
-                    {/* Filter Tag */}
-                    <div>
-                        <label className="label font-semibold">Filter Tag</label>
-                        <div className="flex gap-4">
-                            <label className="cursor-pointer label">
-                                <input type="radio" name="filterTag" value="LATEST" className="radio" />
-                                <span className="label-text ml-2">Latest</span>
-                            </label>
-                            <label className="cursor-pointer label">
-                                <input type="radio" name="filterTag" value="POPULAR" className="radio" />
-                                <span className="label-text ml-2">Popular</span>
-                            </label>
-                        </div>
-                    </div>
-
                     {/* Author */}
                     <div>
                         <label className="label font-semibold">Author</label>
-                        <input type="text" name="author" className="input input-bordered w-full" />
+                        <select name="author" className='select select-bordered w-full'>
+                            <option disabled selected defaultValue={'select'}>Select Author</option>
+                            <option value="Ankur_Rajbongshi">Ankur Rajbongshi</option>
+                            <option value="Manabendra_Nath">Manabendra Nath</option>
+                        </select>
                     </div>
 
                     {/* Content Sections */}

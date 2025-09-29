@@ -1,7 +1,8 @@
+//app/blog/[id]/page.tsx
 import { cookiesClient } from '@/utils/amplify-server-utils'
 import { CalendarDays } from 'lucide-react'
 import React from 'react'
-
+export const dynamic = 'force-static'
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const slugFromUrl = (await params).id
   const { data: post, errors } = await cookiesClient.models.Post.get({ slug: slugFromUrl })
