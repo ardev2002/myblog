@@ -31,7 +31,7 @@ export async function publishBlog(formData: FormData) {
                 order: sec.order,
             }, { authMode: 'userPool' });
         }
-
+        console.log('Sections: ', sections)
         revalidatePath("/");
     } catch (error) {
         console.log(error);

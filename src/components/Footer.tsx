@@ -10,7 +10,7 @@ export default function Footer() {
         
         {/* Brand Section */}
         <div className="flex flex-col items-center md:items-start">
-          <h2 className="text-2xl font-bold text-primary mb-2">🚀 Crispyphrase</h2>
+          <h2 className="text-2xl font-bold text-primary mb-2">Gyanrexa</h2>
           <p className="text-sm text-gray-400 text-center md:text-left max-w-xs">
             Sharing thoughts, tutorials, and ideas with the world. Stay inspired!
           </p>
@@ -53,7 +53,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="max-w-7xl mx-auto px-4 py-6 text-center text-gray-400 text-sm">
-        © {new Date().getFullYear()} Crispyphrase. All rights reserved.
+        © {new Date().getFullYear()} Gyanrexa. All rights reserved.
       </div>
     </footer>
   );
