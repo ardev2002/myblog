@@ -91,13 +91,6 @@ export default function AddSection({ sections, handleSectionChange }: any) {
             </div>
           </div>
 
-          {/* Paragraph */}
-          {/* <textarea
-            placeholder="Paragraph"
-            className="textarea textarea-bordered w-full mb-4"
-            value={section.paragraph}
-            onChange={(e) => handleSectionChange(index, 'paragraph', e.target.value)}
-          /> */}
           <TaggedTextarea
             value={section.paragraph}
             onChange={(val: any) => handleSectionChange(index, "paragraph", val)}

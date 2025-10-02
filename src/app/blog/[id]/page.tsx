@@ -5,7 +5,7 @@ import React from 'react';
 
 export const dynamic = 'force-static';
 
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+export default async function Page({ params }: PageProps<'/blog/[id]'>) {
   const slugFromUrl = (await params).id;
   const { data: post, errors } = await cookiesClient.models.Post.get({ slug: slugFromUrl });
 
